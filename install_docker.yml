@@ -1,0 +1,16 @@
+---
+- name: Install Docker
+  hosts: all
+  become: yes
+  tasks:
+    - name: Install Docker
+      package:
+        name: docker.io
+        state: present
+
+    - name: Start Docker Service
+      service:
+        name: docker
+        state: started
+        enabled: yes
+
